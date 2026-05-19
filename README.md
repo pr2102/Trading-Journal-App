@@ -49,7 +49,7 @@ npm run lint
 - Calendar-based trading journal with trade markers and P&L heat signals.
 - Daily activity with multiple trades, pre-market plan, post-market review, mood, and performance summary.
 - Full trade entry model: symbol, market, exchange, direction, entry/exit, stop, take profit, position size, risk, leverage, fees, slippage, strategy, setup, model, timeframe, session, market condition, confluence, P&L, R multiple, RR, psychology scores, notes, screenshots, tags, and rule violations.
-- Live-ready market dashboard with default `XAUUSD`, TradingView integration, simulated quote ticks, spread, volume, ATR, sentiment, session high/low, watchlist, and economic calendar.
+- Live-ready market dashboard with default `XAUUSD`, TradingView integration, one-second quote refresh, spread, volume, ATR, sentiment, session high/low, watchlist, and economic calendar.
 - Advanced analytics: total trades, win rate, profit factor, average R, average win/loss, expectancy, max drawdown, net profitability, Sharpe ratio, streaks, consistency score, equity curve, drawdown, monthly P&L, R distribution, and breakdowns.
 - Search, filters, and sorting by symbol, strategy, tag, notes, date range, outcome, session, direction, emotion, setup, best/worst trade, highest R, newest/oldest, biggest profit/loss.
 - Theme persistence with dark/light mode.
@@ -70,4 +70,10 @@ npm run lint
 
 ## Live Data Notes
 
-The app includes a TradingView widget and a replaceable market-data hook. The quote cards currently simulate ticks locally so the app runs without API keys. To connect real data later, replace `src/hooks/useMarketData.js` with a TwelveData, Finnhub, broker, or exchange adapter.
+The app includes a TradingView widget and a market-data hook that refreshes quotes every 1 second. Without credentials it streams local demo ticks. To use TwelveData quotes, add this environment variable before building:
+
+```bash
+VITE_TWELVEDATA_API_KEY=your_api_key
+```
+
+The hook lives in `src/hooks/useMarketData.js` and can be swapped for Finnhub, Binance, broker, or exchange adapters later.
