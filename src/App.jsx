@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { AnalyticsPage } from './pages/AnalyticsPage'
+import { AppLogo } from './components/AppLogo'
 import { DashboardPage } from './pages/DashboardPage'
 import { DataPage } from './pages/DataPage'
 import { JournalPage } from './pages/JournalPage'
@@ -79,8 +80,7 @@ function AppShell() {
     <div className="min-h-screen">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-[var(--border)] bg-[color-mix(in_srgb,var(--panel)_92%,transparent)] p-4 backdrop-blur-xl xl:block">
         <div className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--panel-soft)] p-4">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--accent)]">Pro Journal</p>
-          <h1 className="mt-2 text-2xl font-black tracking-tight">Trading Desk</h1>
+          <AppLogo />
           <p className="mt-2 text-sm text-[var(--muted)]">Plan. Execute. Review. Improve.</p>
         </div>
         <nav className="grid gap-2">
@@ -107,8 +107,8 @@ function AppShell() {
         <header className="sticky top-0 z-20 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] px-4 py-3 backdrop-blur-xl sm:px-6">
           <div className="mx-auto flex max-w-[1500px] flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
-              <div className="rounded-2xl bg-[linear-gradient(135deg,var(--accent),var(--accent-2))] p-2 text-white xl:hidden">
-                <Activity size={20} />
+              <div className="xl:hidden">
+                <AppLogo compact />
               </div>
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[var(--accent)]">Today first</p>
