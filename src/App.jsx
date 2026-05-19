@@ -37,7 +37,7 @@ const MotionDiv = motion.div
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Trading-Journal-App">
       <AppShell />
     </BrowserRouter>
   )
